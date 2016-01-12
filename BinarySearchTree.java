@@ -1,3 +1,7 @@
+/*
+ * Implementation of Binary Search Tree with Insertion, printing the tree and finding the depth 
+ * and size of the tree
+*/
 package com.datastructures;
 
 import java.util.Deque;
@@ -5,6 +9,7 @@ import java.util.LinkedList;
 
 public class BinarySearchTree {
 	TreeNode root = null;
+	//----Insertion of Tree Starts----
 	public void insertFromArray(int[]inputarray) {
 		for(int i =0; i< inputarray.length;i++ ) {
 			//System.out.println(inputarray[i]);
@@ -23,6 +28,9 @@ public class BinarySearchTree {
 		
 		return roots;
 	}
+	// ----Insertion Of Tree Ends----
+	
+	// ----Print Tree Starts-----
 	public void printTree() {
 		printTree(root);
 	}
@@ -52,6 +60,9 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	//-----Print Tree Ends----
+	
+	//--- Size Of Tree-----
 	public int size() {
 		return size(root);
 	}
@@ -63,6 +74,8 @@ public class BinarySearchTree {
 		
 		
 	}
+	
+	//---Depth OF Tree-----
 	public int depth(){
 		return depth(root);
 	}
@@ -71,6 +84,8 @@ public class BinarySearchTree {
 		else
 			return 1+Math.max(depth(root.left),depth(root.right));
 	}
+	
+	//-----Main Function-------
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
 		int[] inputarray = {10,8,7,9,14,12,16,19};
