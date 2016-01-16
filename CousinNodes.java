@@ -25,29 +25,45 @@ public class CousinNodes {
 		return isCousin( root, data1,data2);
 		
 	}
-	public static boolean isCousin(TreeNode root, int data1,int data2) {
-		Deque<TreeNode> list = new LinkedList<TreeNode>();
-		list.addFirst(root);
-		list.addLast(null);
-		boolean flag1 = false;
-		boolean flag2 = false;
-		while(!list.isEmpty()) {
-			TreeNode temp = list.removeFirst();
-			if(temp==null) {
-				if(list.isEmpty()) break;
-				else if(flag1 && flag2 ||flag1 && !flag2 || !flag1 && flag2) break;
-				else list.addLast(null);
-									
-			}
-			else {
-				if(temp.data == data1 && data1<root.data) flag1= true;
-				if(temp.data == data2 && data2 > root.data) flag2 = true;
-				if(temp.left!=null) list.addLast(temp.left);
-				if(temp.right!=null)list.addLast(temp.right);
-
-			}
+	public static int level(TreeNode root, int data, int level) {
+		if(root == null) return 0;
+		if(root.data == data) return level;
+		int l = level(root.left, data, level+1);
+		if(l!=0)return l;
+		else return level(root.right,data,level+1);
+		
+	}
+	public static TreeNode findNode(TreeNode root,int data) {
+		if(root== null) return null;
+		if(root.data==data) return root;
+		TreeNode temp = findNode(root.left,data);
+		if(temp!=null) return temp;
+		else
+			return findNode(root.right,data);
+		
+	}
+	public static boolean isSibling(int data1, int data2) {
+		TreeNode n1 = findNode(root,data1);
+		TreeNode n2 = findNode(root,data2);
+		return isSibling(root,n1, n2);
+	}
+	public static boolean isSibling(TreeNode root, TreeNode n1,TreeNode n2) {
+		if (root==null) return false;
+		
+		if(root.left==n1 && root.right==n2 || root.left == n2 && root.right == n1) {
+			return true;
 		}
-		return(flag1 && flag2);
+		else {
+			return isSibling(root.left,n1,n2) || isSibling(root.right,n1,n2);
+		}
+	}
+	public static boolean isCousin(TreeNode root, int data1,int data2) {
+		if(root == null) return false;
+		else if ((level(root,data1,1)==level(root,data2,1))&&(!isSibling(data1,data2))) return true;
+		else return false;
+		
+		
+	
 	}
 	public static void main(String[] args) {
 		int[] inputarray ={8,3,1,4,10,9,11};
