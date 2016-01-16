@@ -40,8 +40,8 @@ public class CousinNodes {
 									
 			}
 			else {
-				if(temp.data == data1) flag1= true;
-				if(temp.data == data2) flag2 = true;
+				if(temp.data == data1 && data1<root.data) flag1= true;
+				if(temp.data == data2 && data2 > root.data) flag2 = true;
 				if(temp.left!=null) list.addLast(temp.left);
 				if(temp.right!=null)list.addLast(temp.right);
 
@@ -54,6 +54,7 @@ public class CousinNodes {
 		for(int n:inputarray) insert(n);
 		System.out.println("Are 1 and 11 cousins ?"+isCousin(1,11));
 		System.out.println("Are 1 and 10 cousins ?"+isCousin(1,10));
+		System.out.println("Are 1 and 4 cosuins ?"+isCousin(1,4));
 
 	}
 
