@@ -1,0 +1,20 @@
+Arrays Related Problems
+---------------------------------
+1.Find Pairs ---done
+2.Majority Element in an Array --done
+3.Merge Array ---done
+4.Print leaders in Array ---done
+5.Swap Zeros ---done
+6.rotate---- done
+7.buystocksellMaxPrice
+8.printmaxelementfromgivenrange
+9.findMaxoccuringnumberofgivenrange
+10.findsubarrayforgivensum
+11.findMaxSubArray
+12.checkConsecutive
+13.checkMissingNumber
+14.maximumamountofwater
+15.groupMultiples3
+16.pairnegativepositive
+17.maxsubtotal
+18.maxsumforK

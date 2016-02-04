@@ -3,7 +3,7 @@
 */
 
 class FindSubArray {
-	public static int findsubarraysum(int[]input, int sum) {
+	public static int findsubarray(int[]input, int sum) {
 		int i=0,j=1;
 		int cuur_sum = input[0];
 		while(i<input.length && j<input.length) {
@@ -29,7 +29,7 @@ class FindSubArray {
 	}
 	public static void main(String[] args) {
 		int[] input ={14, 2, 4, 8, 9, 5, 10, 23};
-		if(findsubarraysum(input,15)==1) {
+		if(findsubarray(input,17)==1) {
 			System.out.println("Sub array found");
 		}
 		else {
